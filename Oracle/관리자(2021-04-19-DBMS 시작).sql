@@ -72,5 +72,3 @@ DEFAULT TABLESPACE mydb;
 
 
 
-
-
