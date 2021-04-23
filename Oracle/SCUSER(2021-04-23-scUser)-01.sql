@@ -8,6 +8,18 @@
 -- 한글가변문자열 : nVARCHAR2(최대크기)
 -- 숫자 : NUMBER(자릿수,소수)
 DROP TABLE tbl_score;
+DROP TABLE tbl_student;
+
+CREATE TABLE tbl_student (
+    st_num CHAR(5),
+    st_name nVARCHAR2(20) NOT NULL,
+    st_dept nVARCHAR2(10),
+    st_grade VARCHAR2(5),
+    st_tel VARCHAR2(20),
+    st_addr nVARCHAR2(125),
+    PRIMARY KEY(st_num)
+);
+
 CREATE TABLE tbl_score (
     sc_num CHAR(5),
     sc_kor NUMBER,
