@@ -129,8 +129,10 @@ SELECT SUBSTR(출판일,0,4) AS 출판월일 FROM view_도서정보;
 SELECT SUBSTR(출판일,-5) AS 출판월일 FROM view_도서정보;
 
 
-
-
+-- 1 OR 1 = 1
+-- 위험한 코드, 데이터를 다 작살내는 코드
+DELETE FROM tbl_books 
+WHERE bk_isbn = 1 OR 1 = 1 ;
 
 
 
