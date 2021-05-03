@@ -142,20 +142,21 @@ FROM tbl_book_rent BR
 DROP VIEW view_도서대여정보;
 CREATE VIEW view_도서대여정보 AS
 (
-SELECT 
-    BR.br_sdate AS 대여일,
-    BR.br_bcode AS 회원코드,
-    BU.bu_name AS 회원명,
-    BU.bu_tel AS 회원연락처,
-    BR.br_isbn AS ISBN,
-    bk.bk_title AS 도서명,
-    BR.br_edate AS 반납일,
-    br.br_price AS 대여금
-FROM tbl_book_rent BR
-    LEFT JOIN tbl_books BK
-        ON BR.br_isbn = BK.bk_isbn
-    LEFT JOIN tbl_buyer BU
-        ON BR.br_bcode = BU.bu_code
+    SELECT
+        BR.br_seq AS 주문번호,
+        BR.br_sdate AS 대여일,
+        BR.br_bcode AS 회원코드,
+        BU.bu_name AS 회원명,
+        BU.bu_tel AS 회원연락처,
+        BR.br_isbn AS ISBN,
+        bk.bk_title AS 도서명,
+        BR.br_edate AS 반납일,
+        br.br_price AS 대여금
+    FROM tbl_book_rent BR
+        LEFT JOIN tbl_books BK
+            ON BR.br_isbn = BK.bk_isbn
+        LEFT JOIN tbl_buyer BU
+            ON BR.br_bcode = BU.bu_code
 )
 ;
 
