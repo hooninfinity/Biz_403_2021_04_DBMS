@@ -20,3 +20,15 @@ CREATE TABLE tbl_files (
 );
 SHOW TABLES;
 DROP TABLE tbl_files;
+
+SELECT * FROM tbl_gallery;
+
+INSERT INTO tbl_gallery
+(g_writer,g_date,g_time,g_subject,g_content)
+VALUES
+('callor','2021-07-06','15:18:00','연습','진짜연습');
+
+-- 현재 연결된 session에서 INSERT가 수행되고
+-- 그 과정에서 AUTO_INCREMENT 칼럼이 변화가 있으면
+-- 그 값을 알려주는 함수
+SELECT LAST_INSERT_ID();
