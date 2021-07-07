@@ -63,15 +63,20 @@ SELECT * FROM tbl_gallery;
 SELECT * FROM tbl_gallery G, tbl_files F
 	WHERE G.g_seq = F.file_gseq
     AND G.g_seq = 1;
-    
+
+DROP VIEW view_갤러리;
+CREATE VIEW view_갤러리 AS
 SELECT 
-	G.g_seq, G.g_writer, G.g_date, G.g_time, G.g_subject, G.g_content, G.g_image,
-    F.file_seq, F.file_original, F.file_upname
+	G.g_seq AS g_seq, G.g_writer AS g_writer, G.g_date AS g_date,
+    G.g_time AS g_time, G.g_subject AS g_subject, G.g_content AS g_content,
+    G.g_image AS g_image,
+    
+    F.file_seq AS f_seq, F.file_original AS f_original, F.file_upname AS f_upname
 FROM tbl_gallery G, tbl_files F
-	WHERE G.g_seq = F.file_gseq
-    AND G.g_seq = 1;
+	WHERE G.g_seq = F.file_gseq;
 
+DESC view_갤러리;
 
-
+SELECT * FROM view_갤러리;
 
 
