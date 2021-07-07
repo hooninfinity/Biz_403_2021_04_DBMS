@@ -20,6 +20,7 @@ CREATE TABLE tbl_files (
 );
 SHOW TABLES;
 DROP TABLE tbl_files;
+DROP TABLE tbl_books;
 
 SELECT * FROM tbl_gallery;
 
@@ -32,3 +33,45 @@ VALUES
 -- 그 과정에서 AUTO_INCREMENT 칼럼이 변화가 있으면
 -- 그 값을 알려주는 함수
 SELECT LAST_INSERT_ID();
+
+DESC tbl_gallery;
+
+INSERT INTO tbl_files
+(file_gseq, file_origin, file_upname)
+VALUES
+(1,'title1','uuid-title1'),
+(1,'title2','uuid-title2'),
+(1,'title3','uuid-title3')
+;
+
+-- INSERT를 수행할 때
+-- AUTO_INCREMENT로 설정된 칼럼에
+-- 0 또는 null, '' 등을 설정하면
+-- AUTO_INCREMENT가 작동된다
+INSERT INTO tbl_gallery
+( g_seq, g_writer, g_date, g_time, g_subject, g_content )
+VALUES
+(0, 'callor', '2021', '00:00', '제목', '내용');
+
+SELECT * FROM tbl_files;
+SELECT * FROM tbl_gallery;
+
+-- EQ JOIN
+-- 카티션 곱
+-- 두개의 table을 JOIN하여
+-- table1 개수 * table2 개수 만큼 list 출력
+SELECT * FROM tbl_gallery G, tbl_files F
+	WHERE G.g_seq = F.file_gseq
+    AND G.g_seq = 1;
+    
+SELECT 
+	G.g_seq, G.g_writer, G.g_date, G.g_time, G.g_subject, G.g_content, G.g_image,
+    F.file_seq, F.file_original, F.file_upname
+FROM tbl_gallery G, tbl_files F
+	WHERE G.g_seq = F.file_gseq
+    AND G.g_seq = 1;
+
+
+
+
+
