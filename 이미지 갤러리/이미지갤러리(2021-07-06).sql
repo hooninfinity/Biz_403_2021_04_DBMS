@@ -76,7 +76,20 @@ FROM tbl_gallery G, tbl_files F
 	WHERE G.g_seq = F.file_gseq;
 
 DESC view_갤러리;
-
 SELECT * FROM view_갤러리;
+
+-- 2021-07-08
+USE mylibs;
+SHOW TABLES;
+DESC tbl_member;
+SELECT * FROM tbl_member;
+
+DROP TABLE tbl_member;
+SELECT * FROM tbl_member;
+delete from tbl_member 
+where m_userid = 'hoon@naver.com';
+commit;
+
+
 
 
