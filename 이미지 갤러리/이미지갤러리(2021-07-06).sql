@@ -132,3 +132,4 @@ SELECT max(g_seq) FROM tbl_gallery;
 UPDATE tbl_gallery SET g_image = null
 WHERE g_seq = 6;
 
+DROP TABLE tbl_files;
